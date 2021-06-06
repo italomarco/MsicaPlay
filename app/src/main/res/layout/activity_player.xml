@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/layot_top_btn"
-        android:background="@drawable/gredient_bg"
+        android:background="@color/purple_500"
         android:layout_alignParentTop="true">
         <ImageView
             android:layout_width="30dp"
@@ -27,7 +27,7 @@
              android:layout_height="wrap_content"
              android:layout_centerVertical="true"
              android:text="Tocando Agora"
-             android:textColor="@color/purple_500"
+             android:textColor="@color/white"
              android:layout_toEndOf="@+id/back_bpn"
              android:layout_toStartOf="@+id/menu_btn"
              android:gravity="center_horizontal"
@@ -52,6 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/music"
+            android:scaleType="centerCrop"
             android:id="@+id/cover_art"/>
         <ImageView
             android:layout_width="match_parent"
@@ -76,18 +77,19 @@
         android:layout_marginEnd="32dp"/>
 
     <TextView
-        android:id="@+id/nome_artista"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Esse é o nome do artista"
+        android:id="@+id/nome_artista"
         android:layout_below="@+id/card"
+        android:textColor="@color/white"
+        android:gravity="center_horizontal"
         android:layout_marginStart="32dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="32dp"
         android:ellipsize="end"
-        android:gravity="center_horizontal"
         android:singleLine="true"
-        android:text="Esse é o nome do artista"
-        android:textColor="@color/white"
         android:textSize="18sp" />
 
     <RelativeLayout
@@ -97,7 +99,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:background="@drawable/gredient_bg">
+        android:background="@color/purple_500">
 
         <ImageView
             android:id="@+id/id_shuffle"
@@ -106,9 +108,14 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="48dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="43dp"
+            android:layout_marginRight="43dp"
+            android:layout_toStartOf="@+id/id_prev"
+            android:layout_toLeftOf="@+id/id_prev"
             android:src="@drawable/ic_shuffle_off" />
 
         <ImageView
+
 
             android:layout_width="35dp"
             android:layout_height="35dp"
@@ -120,44 +127,97 @@
             android:layout_marginEnd="16dp"/>
 
 
-
-
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/play_pause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/play_pause"
-            android:src="@drawable/ic_play"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
+            android:clickable="true"
             android:focusable="true"
-            android:clickable="true"/>
+            android:src="@drawable/ic_play"
+            app:backgroundTint="#121111" />
+
 
         <ImageView
+
+            android:id="@+id/id_next"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:id="@+id/id_next"
-            android:src="@drawable/ic_skip_next"
-            android:layout_toEndOf="@id/play_pause"
-            android:layout_marginStart="16dp"/>
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginBottom="11dp"
+            android:layout_toStartOf="@+id/id_repeat"
+            android:layout_toLeftOf="@+id/id_repeat"
+            android:layout_toEndOf="@+id/play_pause"
+            android:src="@drawable/ic_skip_next" />
 
         <ImageView
-
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:id="@+id/id_repeat"
             android:src="@drawable/ic_repeat_off"
             android:layout_centerVertical="true"
-            android:layout_toStartOf="@id/play_pause"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="32dp"/>
-
-
-
-
-
-
     </RelativeLayout>
 
 
-</RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/seek_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_above="@+id/relative_layout_para_botao"
+        android:layout_marginBottom="13dp">
+
+        <TextView
+
+            android:id="@+id/duracao_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="354dp"
+            android:layout_marginLeft="354dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="11dp"
+            android:text="4:28"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/duracao_tocando"
+            android:layout_width="53dp"
+            android:layout_height="46dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="9dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="31dp"
+            android:layout_marginEnd="375dp"
+            android:layout_marginRight="375dp"
+            android:layout_marginBottom="-25dp"
+            android:text="1:28"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/seek_bar_layout"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="64dp" />
 </RelativeLayout>
